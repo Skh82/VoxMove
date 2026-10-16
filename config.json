@@ -2,7 +2,7 @@
   "SNAPSHOT_ROOT": "/kaggle/input/datasets/jackrichmaya/mybeatx-voxtream2-miburi-snapshot-v1",
   "FEATURE_ROOT": "/kaggle/input/datasets/jackrichmaya/mybeatx-voxtream2-miburi-snapshot-v1/features/tt_layer_11/942219f5359aec14",
   "RAW_BEATX_ROOT": "/kaggle/input/datasets/soheilkhalesy/mybeat2/BEAT2/beat_english_v2.0.0",
-  "OUTPUT_DIR": "./runs/sage",
+  "OUTPUT_DIR": "/kaggle/working/runs",
   "RESUME_PATH": "",
   "CHECKPOINT_PATH": "",
   "INIT_ADAPTED_PATH": "",

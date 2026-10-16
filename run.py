@@ -2,10 +2,6 @@ import argparse
 import json
 import os
 from pathlib import Path
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 
 def main():
     parser = argparse.ArgumentParser(description="VoxMove motion training and generation")
@@ -16,7 +12,7 @@ def main():
     parser.add_argument("--output")
     parser.add_argument("--speaker-id", type=int)
     args = parser.parse_args()
-    from voxmove.config import load_config
+    from src.config import load_config
 
     cfg = load_config(args.config)
     if args.checkpoint:
@@ -36,9 +32,9 @@ def main():
         os.environ[key] = str(threads)
     import numpy as np
     import torch.distributed as dist
-    from voxmove.runtime import distributed_setup, barrier, write_json
-    from voxmove.checkpoint import select_resume_path, resolve_checkpoint, checkpoint_for_eval, load_adapted
-    from voxmove.data import prepare_data, data_signature
+    from src.runtime import distributed_setup, barrier, write_json
+    from src.checkpoint import select_resume_path, resolve_checkpoint, checkpoint_for_eval, load_adapted
+    from src.data import prepare_data, data_signature
 
     rank, world, device = distributed_setup(cfg, args.command)
     out = Path(cfg["OUTPUT_DIR"])
@@ -47,7 +43,7 @@ def main():
         if args.command == "generate":
             if world != 1 or not args.input or not args.output:
                 parser.error("generate requires one process, --input and --output")
-            from voxmove.generate import generate
+            from src.generate import generate
 
             with np.load(args.input, allow_pickle=False) as data:
                 if "hidden" not in data:
@@ -113,13 +109,13 @@ def main():
                 dist.broadcast_object_list(resolved, src=0)
             cfg.update(resolved[0])
             barrier()
-            from voxmove.train import train
+            from src.train import train
 
             train(cfg, prepared, rank, world, device)
         elif args.command == "validate":
             if world != 1:
                 raise ValueError("Validation uses one process")
-            from voxmove.evaluate import validation_fgd
+            from src.evaluate import validation_fgd
 
             model, state = load_adapted(cfg, checkpoint_for_eval(cfg), device, prepared)
             del state
@@ -127,7 +123,7 @@ def main():
             write_json(out / "validation_manual.json", result)
             print(json.dumps(result, indent=2))
         elif args.command == "evaluate":
-            from voxmove.evaluate import evaluate
+            from src.evaluate import evaluate
 
             selected = [str(checkpoint_for_eval(cfg)) if rank == 0 else None]
             if world > 1:
