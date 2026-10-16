@@ -20,7 +20,7 @@ https://github.com/user-attachments/assets/a39bf128-1a8b-4cdb-b37f-828fe9973ad5
 
 ## Data
 
-We use **BEAT2** for speech–gesture motion training and also incorporate the **additional set** to improve robustness across speakers, motion styles, and recording variation.
+We use **BEAT2** for speech-gesture motion training and also incorporate the **additional set** to improve robustness across speakers, motion styles, and recording variation.
 
 ## Project status
 
