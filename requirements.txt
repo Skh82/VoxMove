@@ -1,0 +1,15 @@
+torch>=2.2
+numpy==1.26.4
+scipy>=1.11,<2
+pandas>=2.0,<3
+h5py>=3.9
+pyarrow>=14
+soundfile>=0.12
+tqdm>=4.66
+huggingface_hub>=0.26
+positional-encodings>=6.0.1
+einops>=0.7
+smplx>=0.1.28
+librosa>=0.10
+matplotlib>=3.7
+scikit-learn>=1.3

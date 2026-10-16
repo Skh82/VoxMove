@@ -1,0 +1,26 @@
+{
+  "SNAPSHOT_ROOT": "/kaggle/input/datasets/jackrichmaya/mybeatx-voxtream2-miburi-snapshot-v1",
+  "FEATURE_ROOT": "/kaggle/input/datasets/jackrichmaya/mybeatx-voxtream2-miburi-snapshot-v1/features/tt_layer_11/942219f5359aec14",
+  "RAW_BEATX_ROOT": "/kaggle/input/datasets/soheilkhalesy/mybeat2/BEAT2/beat_english_v2.0.0",
+  "OUTPUT_DIR": "./runs/sage",
+  "RESUME_PATH": "",
+  "CHECKPOINT_PATH": "",
+  "INIT_ADAPTED_PATH": "",
+  "AUTO_RESUME": true,
+  "MIXED_PRECISION": "fp16",
+  "FP16_GRAD_SCALER": {
+    "init_scale": 1024,
+    "growth_factor": 1.5,
+    "backoff_factor": 0.25,
+    "growth_interval": 10000
+  },
+  "BATCH_SIZE_PER_GPU": 128,
+  "GRADIENT_ACCUMULATION": 2,
+  "NUM_WORKERS": 8,
+  "LEARNING_RATE": 0.0001,
+  "EPOCHS": 500,
+  "TEMPORAL_CONTRASTIVE_WEIGHT": 0.1,
+  "RUN_VALIDATION": false,
+  "USE_ADDITIONAL": true,
+  "USE_CUDA_GRAPHS": true
+}
