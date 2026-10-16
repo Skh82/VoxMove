@@ -11,6 +11,46 @@ https://github.com/user-attachments/assets/5fdd48e8-9a33-4c9d-9e23-57cc1e769ebd
 https://github.com/user-attachments/assets/80b3b04a-f86e-4005-8b6f-95094c99e7d5
 
 https://github.com/user-attachments/assets/a39bf128-1a8b-4cdb-b37f-828fe9973ad5
+## Speaking-Rate Experiment
+
+### One text, three speaking rates
+
+How does changing VoXtream2’s speaking rate affect the generated speech and accompanying motion?
+
+This experiment connects a frozen VoXtream2 speech model to the trained VoxMove motion generator. Speech is generated at different target rates, and its internal hidden states condition the generation of gestures and facial movements.
+
+**Voice reference:** Scott   
+**Target speaking rates:** 1, 4, and 7 syllables per second
+
+### Input text
+
+> Hi, I'm VoxMove. I turn written text into speech and full-body animation.
+> VoXtream two generates my voice, while a motion model uses its internal
+> speech features to create gestures and facial movements.
+> I generate movement in short chunks, using the previous motion to guide
+> each new chunk. For this demonstration, my voice is based on Scott.
+
+### Rate 1 · Slow
+
+
+https://github.com/user-attachments/assets/66e85f79-8125-40a9-805a-7193dcb88eaf
+
+### Rate 4 · Intermediate
+
+
+https://github.com/user-attachments/assets/26867a6a-21b2-4c7f-8ca3-f0f0240b96cd
+
+
+### Rate 7 · Fast
+
+
+https://github.com/user-attachments/assets/11bb6b81-26d6-4ee1-98e7-4e9eb77bba58
+
+
+These are qualitative examples of coupled speech and motion generation.
+Speaking-rate values are targets in syllables per second, not playback-speed
+multipliers. The examples do not establish that motion quality improves or
+degrades consistently with speaking rate.
 
 ## How it works
 
